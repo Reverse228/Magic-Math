@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #101010;
+  color: rgba(255, 255, 255, 0.8);
+}
