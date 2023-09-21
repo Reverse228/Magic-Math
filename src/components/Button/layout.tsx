@@ -1,5 +1,7 @@
 import { roboto_Mono } from "@/utils/fonts";
 
+import { SvgIcon } from "..";
+
 import type { FC } from "react";
 import type { Props } from "./types";
 
@@ -16,9 +18,13 @@ export const Button: FC<Props> = (props) => {
       className={roboto_Mono.className}
       {...{ ...restProps }}
     >
-      {icon?.iconLeft?.iconElement && icon.iconLeft.iconElement}
+      {icon?.iconLeft?.iconElement && (
+        <SvgIcon Svg={icon.iconLeft.iconElement} />
+      )}
       {label}
-      {icon?.rightIcon?.iconElement && icon.rightIcon.iconElement}
+      {icon?.rightIcon?.iconElement && (
+        <SvgIcon Svg={icon.rightIcon.iconElement} />
+      )}
     </S.Button>
   );
 };
