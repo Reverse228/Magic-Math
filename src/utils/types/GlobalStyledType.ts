@@ -1,7 +1,8 @@
+import type { ElementType } from "react";
 import type { Sides, Size } from ".";
 
 type IconSettings = {
-  iconElement: JSX.Element;
+  iconElement: ElementType;
   color?: string;
   size?: Size;
   alt?: string;
@@ -27,4 +28,5 @@ export type GlobalStyledProps = {
   fontWeight?: number;
   icon?: Icon;
   fontOpacity?: number;
+  opacity?: number;
 };

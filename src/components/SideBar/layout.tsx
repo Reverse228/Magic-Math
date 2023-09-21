@@ -21,7 +21,7 @@ export const SideBar: FC<Props> = (props) => {
           variant="text"
           icon={{
             iconLeft: {
-              iconElement: <How />,
+              iconElement: How,
             },
           }}
         />
@@ -34,7 +34,7 @@ export const SideBar: FC<Props> = (props) => {
               padding="16px"
               icon={{
                 iconLeft: {
-                  iconElement: <Svg />,
+                  iconElement: Svg,
                 },
               }}
             />
