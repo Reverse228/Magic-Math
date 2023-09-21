@@ -6,7 +6,9 @@ import { theme } from "@theme";
 import type { StyledProps } from "./types";
 
 export const Button = styled.button<StyledProps>`
+  width: fit-content;
   display: flex;
+  align-content: center;
   gap: 28px;
   height: fit-content;
   cursor: pointer;
@@ -23,9 +25,23 @@ export const Button = styled.button<StyledProps>`
       font-size: ${fontSize ?? (size === "small" ? "14px" : "20px")};
       font-weight: ${fontWeight ?? "normal"};
 
+      & svg path {
+        transition: 0.2s;
+        fill: ${
+          (color && rgba(color, fontOpacity ?? 0.8)) ??
+          rgba(theme.colors.white.base, fontOpacity ?? 0.3)
+        };
+      }
+
       &:hover{
         color: ${color ?? theme.colors.white.base};
+
+        & svg path {
+          fill: ${color ?? theme.colors.white.base};
+        }
       }
+
+
     `}
 
   ${({ variant }) => {
