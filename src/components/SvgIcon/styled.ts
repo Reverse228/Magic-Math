@@ -18,10 +18,13 @@ export const Wrapper = styled.div<StyledProps>`
       svg {
         width: ${size?.width ?? "auto"};
         height: ${size?.height ?? "auto"};
-        fill: ${
-          fill
-            ? rgba(fill, opacity ?? 0.8)
-            : rgba(theme.colors.white.base, opacity ?? 0.8)
+        
+        path {
+          fill: ${
+            fill
+              ? rgba(fill, opacity ?? 0.8)
+              : rgba(theme.colors.white.base, opacity ?? 0.8)
+          }
         }
       } 
   `}

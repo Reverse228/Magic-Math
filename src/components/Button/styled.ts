@@ -12,37 +12,11 @@ export const Button = styled.button<StyledProps>`
   gap: 28px;
   height: fit-content;
   cursor: pointer;
-  transition: 0.2s;
-
-  ${({ padding, margin, color, fontSize, fontWeight, size, fontOpacity }) =>
-    `
-      padding: ${padding ?? (size === "small" ? "14px" : "26px")};
-      margin: ${margin ?? "0"};
-      color: ${
-        (color && rgba(color, fontOpacity ?? 0.8)) ??
-        rgba(theme.colors.white.base, fontOpacity ?? 0.8)
-      };
-      font-size: ${fontSize ?? (size === "small" ? "14px" : "20px")};
-      font-weight: ${fontWeight ?? "normal"};
-
-      & svg path {
-        transition: 0.2s;
-        fill: ${
-          (color && rgba(color, fontOpacity ?? 0.8)) ??
-          rgba(theme.colors.white.base, fontOpacity ?? 0.3)
-        };
-      }
-
-      &:hover{
-        color: ${color ?? theme.colors.white.base};
-
-        & svg path {
-          fill: ${color ?? theme.colors.white.base};
-        }
-      }
-
-
-    `}
+  transition:
+    background-color 0.2s,
+    border 0.2s,
+    border-radius 0.2s,
+    color 0.2s;
 
   ${({ variant }) => {
     switch (variant) {
@@ -94,4 +68,32 @@ export const Button = styled.button<StyledProps>`
         return ``;
     }
   }}
+
+  ${({ padding, margin, color, fontSize, fontWeight, size, fontOpacity }) =>
+    `
+      padding: ${padding ?? (size === "small" ? "14px" : "26px")};
+      margin: ${margin ?? "0"};
+      color: ${
+        (color && rgba(color, fontOpacity ?? 0.8)) ??
+        rgba(theme.colors.white.base, fontOpacity ?? 0.8)
+      };
+      font-size: ${fontSize ?? (size === "small" ? "14px" : "20px")};
+      font-weight: ${fontWeight ?? "normal"};
+
+      & svg path {
+        transition: 0.2s;
+        fill: ${
+          (color && rgba(color, fontOpacity ?? 0.8)) ??
+          rgba(theme.colors.white.base, fontOpacity ?? 0.3)
+        };
+      }
+
+      &:hover{
+        color: ${color ?? theme.colors.white.base};
+
+        & svg path {
+          fill: ${color ?? theme.colors.white.base};
+        }
+      }
+    `}
 `;
