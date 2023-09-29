@@ -3,7 +3,10 @@ import { rgba } from "emotion-rgba";
 
 import { theme } from "@theme";
 
-export const Wrapper = styled.div`
+import type { SideBarProps, StyledProps } from "./types";
+
+export const Wrapper = styled.div<StyledProps & SideBarProps>`
+  position: ${({ hover }) => (hover !== undefined ? "absolute" : "relative")};
   display: flex;
   flex-direction: column;
   align-content: flex-start;
@@ -14,27 +17,14 @@ export const Wrapper = styled.div`
   border-right: 1px solid ${rgba(theme.colors.white.base, 0.1)};
 `;
 
-export const Name = styled.h1`
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 4px;
-  margin: 0;
-  text-align: center;
-`;
-
-export const Menu = styled.div<{ expand: boolean }>`
+export const Menu = styled.div<SideBarProps>`
   display: grid;
   gap: 48px;
   margin: 0;
   justify-content: ${({ expand }) => (expand ? `flex-start` : "center")};
 `;
 
-export const ButtonWrapper = styled.div<{ expand: boolean }>`
-  width: 100%;
-  display: ${({ expand }) => (expand ? "flex" : "grid")};
-  gap: 8px;
-  justify-content: ${({ expand }) => (expand ? `space-between` : "center")};
-  margin-top: auto;
+export const InvisibleSize = styled.div`
+  width: 143px;
+  height: 100vh;
 `;

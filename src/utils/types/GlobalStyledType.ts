@@ -1,4 +1,4 @@
-import type { ElementType } from "react";
+import type { CSSProperties, ElementType } from "react";
 import type { Sides, Size } from ".";
 
 type IconSettings = {
@@ -29,4 +29,5 @@ export type GlobalStyledProps = {
   icon?: Icon;
   fontOpacity?: number;
   opacity?: number;
+  style?: CSSProperties;
 };

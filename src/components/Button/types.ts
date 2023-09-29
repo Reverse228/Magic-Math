@@ -5,4 +5,5 @@ export type StyledProps = Omit<GlobalStyledProps, "backgroundColor"> &
 
 export type Props = StyledProps & {
   label?: string;
+  onClick?: () => void;
 };

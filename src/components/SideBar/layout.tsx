@@ -1,46 +1,46 @@
-import Link from "next/link";
-
 import { Button } from "@components";
 import How from "@public/svg/How.svg";
 
 import type { FC } from "react";
-import type { Props } from "./types";
+import type { SideBarProps } from "./types";
 
-import { socialLinks } from "./staticData";
+import { Links, MainName, Menu } from "./components";
+import { useSideBar } from "./hook";
 import * as S from "./styled";
 
-export const SideBar: FC<Props> = (props) => {
+export const SideBar: FC<SideBarProps> = (props) => {
   const { expand = true } = props;
 
+  const {
+    hoverExpand,
+    expandSideBar,
+    handles: { handleMouseEnter, handleMouseLeave },
+  } = useSideBar(expand);
+
   return (
-    <S.Wrapper>
-      <S.Name>{expand ? " Magic Math" : "MM"} </S.Name>
-      <S.Menu {...{ expand }}>
-        <Button
-          label={expand ? "How it works?" : ""}
-          variant="text"
-          icon={{
-            iconLeft: {
-              iconElement: How,
-            },
-          }}
-        />
-      </S.Menu>
-      <S.ButtonWrapper {...{ expand }}>
-        {socialLinks.map(({ id, Svg, href }) => (
-          <Link href={href} key={id}>
-            <Button
-              variant="contained"
-              padding="16px"
-              icon={{
-                iconLeft: {
-                  iconElement: Svg,
-                },
-              }}
-            />
-          </Link>
-        ))}
-      </S.ButtonWrapper>
-    </S.Wrapper>
+    <>
+      <S.Wrapper
+        hover={hoverExpand}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <MainName expand={expandSideBar} />
+        <Menu expand={expandSideBar} />
+        {/* <S.Menu expand={hoverExpand ?? expand}>
+          <Button
+            label={hoverExpand ?? expand ? "How it works?" : ""}
+            variant="text"
+            padding="0px"
+            icon={{
+              iconLeft: {
+                iconElement: How,
+              },
+            }}
+          />
+        </S.Menu> */}
+        <Links expand={expandSideBar} />
+      </S.Wrapper>
+      {hoverExpand !== undefined && <S.InvisibleSize />}
+    </>
   );
 };

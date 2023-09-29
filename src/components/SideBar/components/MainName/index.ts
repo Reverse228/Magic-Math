@@ -1,0 +1,1 @@
+export { MainName } from "./layout";
