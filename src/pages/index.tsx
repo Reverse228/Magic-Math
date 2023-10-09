@@ -1,4 +1,4 @@
-import { SideBar } from "@components";
+import { Canvas, SideBar } from "@components";
 
 export default function Page() {
   return (
@@ -8,6 +8,7 @@ export default function Page() {
       }}
     >
       <SideBar />
+      <Canvas />
     </div>
   );
 }
