@@ -1,18 +1,15 @@
 import type { FC } from "react";
-import type { SideBarProps } from "./types";
 
 import { Links, MainName, Menu } from "./components";
 import { useSideBar } from "./hook";
 import * as S from "./styled";
 
-export const SideBar: FC<SideBarProps> = (props) => {
-  const { expand = true } = props;
-
+export const SideBar: FC = () => {
   const {
     hoverExpand,
     expandSideBar,
     handles: { handleMouseEnter, handleMouseLeave },
-  } = useSideBar(expand);
+  } = useSideBar();
 
   return (
     <>

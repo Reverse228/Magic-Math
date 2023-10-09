@@ -1,14 +1,5 @@
-import { Canvas, SideBar } from "@components";
+import { CanvasPage } from "@pageBuilder";
 
 export default function Page() {
-  return (
-    <div
-      style={{
-        display: "flex",
-      }}
-    >
-      <SideBar />
-      <Canvas />
-    </div>
-  );
+  return <CanvasPage />;
 }

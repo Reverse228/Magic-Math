@@ -3,9 +3,9 @@ import { rgba } from "emotion-rgba";
 
 import { theme } from "@theme";
 
-import type { SideBarProps, StyledProps } from "./types";
+import type { StyledProps } from "./types";
 
-export const Wrapper = styled.div<StyledProps & SideBarProps>`
+export const Wrapper = styled.div<StyledProps>`
   position: ${({ hover }) => (hover !== undefined ? "absolute" : "relative")};
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ export const Wrapper = styled.div<StyledProps & SideBarProps>`
   border-right: 1px solid ${rgba(theme.colors.white.base, 0.1)};
 `;
 
-export const Menu = styled.div<SideBarProps>`
+export const Menu = styled.div<StyledProps>`
   display: grid;
   gap: 48px;
   margin: 0;

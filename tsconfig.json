@@ -23,7 +23,11 @@
       "@utils/*": ["./src/utils/*"],
       "@components": ["./src/components"],
       "@theme": ["./src/utils/theme"],
-      "@public/*": ["./src/public/*"]
+      "@public/*": ["./src/public/*"],
+      "@pageBuilder": ["./src/pageBuilder"],
+      "@context": ["./src/utils/context"],
+      "@constant": ["./src/utils/constant"],
+      "@types": ["./src/utils/types"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
