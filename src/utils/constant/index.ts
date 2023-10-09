@@ -1,0 +1,4 @@
+export const CONST = {
+  SIDE_BAR_OPEN_WIDTH: 343,
+  SIDE_BAR_CLOSE_WIDTH: 143,
+};

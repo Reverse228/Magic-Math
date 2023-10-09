@@ -1,10 +1,5 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 100%;
-
-  canvas {
-    width: 100%;
-    display: block;
-  }
+  display: flex;
 `;

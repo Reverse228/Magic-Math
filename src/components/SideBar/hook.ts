@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 
-export const useSideBar = (expand: boolean) => {
+import { useSidebar } from "@context";
+
+export const useSideBar = () => {
+  const [{ isSidebarOpen }] = useSidebar();
+
   const [hoverExpand, setHoverExpand] = useState<boolean | undefined>(
     undefined
   );
 
   function handleMouseEnter() {
-    !expand && setHoverExpand(true);
+    !isSidebarOpen && setHoverExpand(true);
   }
 
   function handleMouseLeave() {
-    !expand && setHoverExpand(false);
+    !isSidebarOpen && setHoverExpand(false);
   }
 
   useEffect(() => {
     setHoverExpand(undefined);
-  }, [expand]);
+  }, [isSidebarOpen]);
 
   return {
     hoverExpand,
-    expandSideBar: hoverExpand ?? expand,
+    expandSideBar: hoverExpand ?? isSidebarOpen,
     handles: {
       handleMouseEnter,
       handleMouseLeave,
