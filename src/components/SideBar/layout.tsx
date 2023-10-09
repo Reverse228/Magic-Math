@@ -1,6 +1,3 @@
-import { Button } from "@components";
-import How from "@public/svg/How.svg";
-
 import type { FC } from "react";
 import type { SideBarProps } from "./types";
 
@@ -26,18 +23,6 @@ export const SideBar: FC<SideBarProps> = (props) => {
       >
         <MainName expand={expandSideBar} />
         <Menu expand={expandSideBar} />
-        {/* <S.Menu expand={hoverExpand ?? expand}>
-          <Button
-            label={hoverExpand ?? expand ? "How it works?" : ""}
-            variant="text"
-            padding="0px"
-            icon={{
-              iconLeft: {
-                iconElement: How,
-              },
-            }}
-          />
-        </S.Menu> */}
         <Links expand={expandSideBar} />
       </S.Wrapper>
       {hoverExpand !== undefined && <S.InvisibleSize />}
