@@ -1,1 +1,1 @@
-export { Canvas } from "./layout";
+export { CanvasLayer } from "./layout";
