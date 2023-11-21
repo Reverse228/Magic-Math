@@ -1,15 +1,13 @@
+import { Canvas } from "@react-three/fiber";
+
+import { StartLabel } from "./components";
 import * as S from "./styled";
 
-export const Canvas = () => {
+export const CanvasLayer = () => {
   return (
     <S.Wrapper>
-      <S.StartName>
-        <S.Name>Create 3 start points </S.Name>
-        <S.Point>.</S.Point>
-        <S.Point>.</S.Point>
-        <S.Point>.</S.Point>
-      </S.StartName>
-      <canvas />
+      <StartLabel />
+      <Canvas>{}</Canvas>
     </S.Wrapper>
   );
 };
