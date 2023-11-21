@@ -1,2 +1,2 @@
-export { SidebarStateProvider } from "./useSideBar";
-export { useSidebar } from "./useSideBar";
+export { SidebarStateProvider, useSidebar } from "./useSideBar";
+export { MouseProvider, useMouse } from "./useMouse";
