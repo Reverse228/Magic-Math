@@ -1,13 +1,22 @@
-import { useMouse } from "@context";
+import { useMouse, useSidebar } from "@context";
 
 export const useCanvas = () => {
-  const [, { handleSetCoord }] = useMouse();
+  const [{ mouseCoord }, { handleSetCoord }] = useMouse();
+  const [{ isSidebarOpen }, { handleSidebar }] = useSidebar();
 
   const handleMouseCoord = (event: React.MouseEvent) => {
-    handleSetCoord({ x: event.clientX, y: event.clientY });
+    if (mouseCoord.length) {
+      handleSetCoord({ x: event.clientX, y: event.clientY });
+    } else {
+      handleSidebar(false);
+      setTimeout(() => {
+        handleSetCoord({ x: event.clientX, y: event.clientY });
+      }, 800);
+    }
   };
 
   return {
+    isSidebarOpen,
     handles: {
       handleMouseCoord,
     },

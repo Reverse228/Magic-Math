@@ -1,6 +1,8 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
+import type { Props } from "./types";
+
 export const opacityAnim = (max: number, min: number) => keyframes`
   0% {
     opacity: ${max};
@@ -13,9 +15,15 @@ export const opacityAnim = (max: number, min: number) => keyframes`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<Props>`
   position: absolute;
   display: flex;
+  transition: 1s;
+
+  ${({ remove }) =>
+    remove && {
+      opacity: 0,
+    }}
 
   h2 {
     font-size: 20px;
@@ -23,6 +31,7 @@ export const Wrapper = styled.div`
     font-weight: 400;
     line-height: normal;
     letter-spacing: 2px;
+    transition: 0.2s;
   }
 `;
 
