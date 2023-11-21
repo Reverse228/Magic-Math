@@ -12,8 +12,8 @@ export const SideBar: FC = () => {
   } = useSideBar();
 
   return (
-    <>
-      <S.Wrapper
+    <S.Wrapper>
+      <S.Content
         hover={hoverExpand}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -21,8 +21,7 @@ export const SideBar: FC = () => {
         <MainName expand={expandSideBar} />
         <Menu expand={expandSideBar} />
         <Links expand={expandSideBar} />
-      </S.Wrapper>
-      {hoverExpand !== undefined && <S.InvisibleSize />}
-    </>
+      </S.Content>
+    </S.Wrapper>
   );
 };

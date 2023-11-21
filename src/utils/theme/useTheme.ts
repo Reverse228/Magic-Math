@@ -3,5 +3,8 @@ export const theme = {
     white: {
       base: "#FFFFFF",
     },
+    black: {
+      base: "#101010",
+    },
   },
 };
