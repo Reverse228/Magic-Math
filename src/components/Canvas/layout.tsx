@@ -6,12 +6,13 @@ import { useCanvas } from "./hooks";
 
 export const CanvasLayer = () => {
   const {
+    isSidebarOpen,
     handles: { handleMouseCoord },
   } = useCanvas();
 
   return (
     <S.Wrapper onClick={handleMouseCoord}>
-      <StartLabel />
+      <StartLabel remove={!isSidebarOpen} />
       <Canvas>
         <Scene />
       </Canvas>
