@@ -1,14 +1,19 @@
 import { Canvas } from "@react-three/fiber";
 
-import { Circle, StartLabel } from "./components";
+import { Scene, StartLabel } from "./components";
 import * as S from "./styled";
+import { useCanvas } from "./hooks";
 
 export const CanvasLayer = () => {
+  const {
+    handles: { handleMouseCoord },
+  } = useCanvas();
+
   return (
-    <S.Wrapper>
+    <S.Wrapper onClick={handleMouseCoord}>
       <StartLabel />
       <Canvas>
-        <Circle position={[0, 0, 0]} />
+        <Scene />
       </Canvas>
     </S.Wrapper>
   );
