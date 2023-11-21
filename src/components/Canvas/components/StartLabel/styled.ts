@@ -19,6 +19,7 @@ export const Wrapper = styled.div<Props>`
   position: absolute;
   display: flex;
   transition: 1s;
+  z-index: -1;
 
   ${({ remove }) =>
     remove && {

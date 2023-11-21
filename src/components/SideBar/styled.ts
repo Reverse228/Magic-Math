@@ -5,7 +5,10 @@ import { theme } from "@theme";
 
 import type { StyledProps } from "./types";
 
-export const Wrapper = styled.div<StyledProps>`
+export const Wrapper = styled.div`
+  min-width: 143px;
+`;
+export const Content = styled.div<StyledProps>`
   position: ${({ hover }) => (hover !== undefined ? "absolute" : "relative")};
   display: flex;
   flex-direction: column;
@@ -15,6 +18,9 @@ export const Wrapper = styled.div<StyledProps>`
   width: fit-content;
   padding: 46px;
   border-right: 1px solid ${rgba(theme.colors.white.base, 0.1)};
+  background: ${rgba(theme.colors.black.base, 0.6)};
+  backdrop-filter: blur(16px);
+  z-index: 100;
 `;
 
 export const Menu = styled.div<StyledProps>`
@@ -22,9 +28,4 @@ export const Menu = styled.div<StyledProps>`
   gap: 48px;
   margin: 0;
   justify-content: ${({ expand }) => (expand ? `flex-start` : "center")};
-`;
-
-export const InvisibleSize = styled.div`
-  width: 143px;
-  height: 100vh;
 `;
