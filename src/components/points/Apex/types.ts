@@ -1,3 +1,3 @@
 export type Props = {
-  id: number;
+  id?: number;
 };

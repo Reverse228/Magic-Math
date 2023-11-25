@@ -58,7 +58,7 @@ export const Apex: FC<ThreeElements["group"] & Props> = (props) => {
         anchorY="middle"
         color="black"
       >
-        {id + 1}
+        {Number(id) + 1}
       </Text>
     </group>
   );
