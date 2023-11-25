@@ -3,4 +3,4 @@ export { SideBar } from "./SideBar";
 export { SvgIcon } from "./SvgIcon";
 export { CanvasLayer } from "./Canvas";
 
-export { Apex } from "./points";
+export { Apex, StartPoint } from "./points";
