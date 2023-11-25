@@ -8,7 +8,7 @@ export const Scene = () => {
   return (
     <mesh>
       {position.map(({ x, y }, idx) => (
-        <Circle key={idx} position={[x, y, 0]} />
+        <Circle key={idx} position={[x, y, 0]} type="apex" id={idx} />
       ))}
     </mesh>
   );
