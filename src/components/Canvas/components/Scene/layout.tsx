@@ -1,13 +1,13 @@
-import { Circle } from "..";
+import { Circle, RenderScene } from "..";
 
-import { useScene } from "./useScene";
+import { useScene } from "./hook";
 
 export const Scene = () => {
-  const { position, startPointCoord } = useScene();
+  const { apexCoord, startPointCoord } = useScene();
 
   return (
     <mesh>
-      {position.map(({ x, y }, idx) => (
+      {apexCoord.map(({ x, y }, idx) => (
         <Circle key={idx} position={[x, y, 0]} type="apex" id={idx} />
       ))}
       {startPointCoord && (
@@ -15,6 +15,9 @@ export const Scene = () => {
           position={[startPointCoord.x, startPointCoord.y, 0]}
           type="startPoint"
         />
+      )}
+      {apexCoord.length === 3 && startPointCoord && (
+        <RenderScene apexCoord={apexCoord} startPointCoord={startPointCoord} />
       )}
     </mesh>
   );
