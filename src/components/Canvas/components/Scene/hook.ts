@@ -1,6 +1,6 @@
 import { useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { useMouse } from "@context";
 
@@ -11,7 +11,7 @@ export const useScene = () => {
 
   const { camera, size } = useThree();
 
-  const [position, setPosition] = useState<Coord[]>([]);
+  const [apexCoord, setApexCoord] = useState<Coord[]>([]);
   const [startPointCoord, setStartPointCoord] = useState<Coord>();
 
   const handleConvertSize = (x: number, y: number) => {
@@ -27,12 +27,12 @@ export const useScene = () => {
     return { posX: pos.x, posY: pos.y };
   };
 
-  useEffect(() => {
+  useMemo(() => {
     mouseCoord.length <= 3 &&
       mouseCoord.map(({ x, y }) => {
         const { posX, posY } = handleConvertSize(x, y);
 
-        setPosition([...position, { x: posX, y: posY }]);
+        setApexCoord([...apexCoord, { x: posX, y: posY }]);
       });
 
     if (mouseCoord.length === 4) {
@@ -43,5 +43,5 @@ export const useScene = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mouseCoord]);
 
-  return { position, startPointCoord };
+  return { apexCoord, startPointCoord };
 };
