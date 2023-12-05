@@ -13,6 +13,6 @@ export const Circle: FC<ThreeElements["mesh"] & Props> = (props) => {
   } else if (type === "startPoint") {
     return <StartPoint position={position} />;
   } else if (type === "simplePoint") {
-    return <SimplePoint position={position} />;
+    return <SimplePoint />;
   }
 };

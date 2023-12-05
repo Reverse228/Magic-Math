@@ -8,9 +8,14 @@ import type { Props } from "./types";
 import { useRenderScene } from "./hook";
 
 export const RenderScene: FC<Props> = (props) => {
-  const { simplePoints } = useRenderScene(props);
+  const { meshRef, circlesData } = useRenderScene(props);
 
-  return simplePoints.map(({ x, y }) => (
-    <Circle key={x * y} type="simplePoint" position={[x, y, 0]} />
-  ));
+  return (
+    <instancedMesh
+      ref={meshRef}
+      args={[undefined, undefined, circlesData.length]}
+    >
+      <Circle type="simplePoint" />
+    </instancedMesh>
+  );
 };
