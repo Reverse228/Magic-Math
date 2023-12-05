@@ -29,5 +29,6 @@ export type GlobalStyledProps = {
   icon?: Icon;
   fontOpacity?: number;
   opacity?: number;
+  square?: boolean;
   style?: CSSProperties;
 };
