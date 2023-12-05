@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 import { rgba } from "emotion-rgba";
 
-import { theme } from "@theme";
-
 import type { StyledProps } from "./types";
 
 export const Wrapper = styled.div<StyledProps>`
@@ -15,17 +13,15 @@ export const Wrapper = styled.div<StyledProps>`
 
   ${({ size, fill, opacity }) =>
     `
+    &&{
       svg {
         width: ${size?.width ?? "auto"};
         height: ${size?.height ?? "auto"};
         
-        path {
-          fill: ${
-            fill
-              ? rgba(fill, opacity ?? 0.8)
-              : rgba(theme.colors.white.base, opacity ?? 0.8)
-          }
+        path, rect {
+          fill: ${fill && rgba(fill, opacity ?? 0.8)}
         }
       } 
+    } 
   `}
 `;

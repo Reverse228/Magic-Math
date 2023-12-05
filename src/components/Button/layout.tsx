@@ -19,11 +19,11 @@ export const Button: FC<Props> = (props) => {
       {...{ ...restProps, onClick }}
     >
       {icon?.iconLeft?.iconElement && (
-        <SvgIcon Svg={icon.iconLeft.iconElement} />
+        <SvgIcon Svg={icon.iconLeft.iconElement} fill={icon.iconLeft.color} />
       )}
       {label}
       {icon?.rightIcon?.iconElement && (
-        <SvgIcon Svg={icon.rightIcon.iconElement} />
+        <SvgIcon Svg={icon.rightIcon.iconElement} fill={icon.rightIcon.color} />
       )}
     </S.Button>
   );

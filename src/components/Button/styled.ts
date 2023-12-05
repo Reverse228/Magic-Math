@@ -6,10 +6,11 @@ import { theme } from "@theme";
 import type { StyledProps } from "./types";
 
 export const Button = styled.button<StyledProps>`
-  width: fit-content;
   display: flex;
   align-content: center;
+  justify-content: center;
   gap: 28px;
+  width: fit-content;
   height: fit-content;
   cursor: pointer;
   transition:
@@ -69,8 +70,25 @@ export const Button = styled.button<StyledProps>`
     }
   }}
 
-  ${({ padding, margin, color, fontSize, fontWeight, size, fontOpacity }) =>
+  ${({
+    padding,
+    margin,
+    color,
+    fontSize,
+    fontWeight,
+    size,
+    fontOpacity,
+    square,
+  }) =>
     `
+      ${
+        square &&
+        `
+        width: ${size === "small" ? "40px" : "80px"};
+        height: ${size === "small" ? "40px" : "80px"};
+        `
+      };
+
       padding: ${padding ?? (size === "small" ? "14px" : "26px")};
       margin: ${margin ?? "0"};
       color: ${
@@ -80,7 +98,7 @@ export const Button = styled.button<StyledProps>`
       font-size: ${fontSize ?? (size === "small" ? "14px" : "20px")};
       font-weight: ${fontWeight ?? "normal"};
 
-      & svg path {
+      & svg path, & svg rect{
         transition: 0.2s;
         fill: ${
           (color && rgba(color, fontOpacity ?? 0.8)) ??
@@ -91,7 +109,7 @@ export const Button = styled.button<StyledProps>`
       &:hover{
         color: ${color ?? theme.colors.white.base};
 
-        & svg path {
+        & svg path, & svg rect{
           fill: ${color ?? theme.colors.white.base};
         }
       }
